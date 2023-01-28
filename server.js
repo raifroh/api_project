@@ -16,7 +16,7 @@ const people = {
     'monica':
         {'age': 25,
         'birthName': 'Monica',
-        'birthLocation': 'San Diego, Illinois',
+        'birthLocation': 'San Diego, California',
         'status': 'Loved by Rai'
     },
     'unknown':
