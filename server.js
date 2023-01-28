@@ -2,10 +2,23 @@ const express = require('express')
 const app = express()
 let PORT = 8000
 
-const savage = {
-    'age': 29,
-    'birthName': '212121',
-    'birthLocation': 'London, England'
+const rappers = {
+    '21 savage':
+        {'age': 29,
+        'birthName': 'twenty-one',
+        'birthLocation': 'London, England'
+    },
+    'chance the rapper':
+        {'age': 29,
+        'birthName': 'Chancelor',
+        'birthLocation': 'Chicago, Illinois'
+    },
+    'unknown':
+        {'age': 0,
+        'birthName': 'unknown',
+        'birthLocation': 'unknown'
+    },
+
 }
 //create a server
 
@@ -14,8 +27,13 @@ app.listen(PORT, () => {
 })
 
 //api
-app.get('/api', (request, response) => {
-    response.json(savage)
+app.get('/api/:name', (request, response) => {
+    const rapperName = request.params.name.toLowerCase()
+    if(rappers[rapperName]){
+        response.json(rappers[rapperName])
+    }else{
+        response.json(rappers['unknown'])
+    }
 })
 
 //serve up a file
