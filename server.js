@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 let PORT = 8000
 
-const rappers = {
+const people = {
     '21 savage':
         {'age': 29,
         'birthName': 'twenty-one',
@@ -12,6 +12,12 @@ const rappers = {
         {'age': 29,
         'birthName': 'Chancelor',
         'birthLocation': 'Chicago, Illinois'
+    },
+    'monica':
+        {'age': 25,
+        'birthName': 'Monica',
+        'birthLocation': 'San Diego, Illinois',
+        'status': 'Loved by Rai'
     },
     'unknown':
         {'age': 0,
@@ -28,11 +34,11 @@ app.listen(PORT, () => {
 
 //api
 app.get('/api/:name', (request, response) => {
-    const rapperName = request.params.name.toLowerCase()
-    if(rappers[rapperName]){
-        response.json(rappers[rapperName])
+    const personName = request.params.name.toLowerCase()
+    if(people[personName]){
+        response.json(people[personName])
     }else{
-        response.json(rappers['unknown'])
+        response.json(people['unknown'])
     }
 })
 
